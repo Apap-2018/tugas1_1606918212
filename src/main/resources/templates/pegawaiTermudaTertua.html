@@ -20,11 +20,11 @@
 			</tr>
 			<tr>
 				<td>Tanggal Lahir</td>
-				<td th:text="${pegawaiMuda.tanggalLahir}"></td>
+				<td th:text="${#dates.format(pegawaiMuda.tanggalLahir, 'dd-MM-yyyy')}"></td>
 			</tr>
 			<tr>
-				<td>Tahun Masuk</td>
-				<td th:text="${pegawaiMuda.tahun_masuk}"></td>
+				<td>Tempat Lahir</td>
+				<td th:text="${pegawaiMuda.tempat_lahir}"></td>
 			</tr>
 			<tr>
 				<td>Tahun Masuk</td>
@@ -55,7 +55,7 @@
 			<tr>
 			<tr>
 				<td>Tanggal Lahir</td>
-				<td th:text="${pegawaiTua.tanggalLahir}"></td>
+				<td th:text="${#dates.format(pegawaiTua.tanggalLahir, 'dd-MM-yyyy')}"></td>
 			</tr>
 				<td>Tempat Lahir</td>
 				<td th:text="${pegawaiTua.tempat_lahir}"></td>

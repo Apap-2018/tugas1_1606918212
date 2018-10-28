@@ -5,7 +5,11 @@
 		<object th:include="fragments/fragment :: css" th:remove="tag"></object>
 		<object th:include="fragments/fragment :: js" th:remove="tag"></object>
 	</head>
+	
 	<body>
+	
+	<nav th:replace="fragments/fragment :: navbar"></nav>
+	
 	<div th:if="${message != null}" class="container" style="position: fixed; top: 64px; z-index: 99; left: 0; right: 0; max-width: 640px">
         <div th:object="${message}" class="alert alert-dismissible fade show" th:classappend="'alert-' + *{type}" role="alert">
             <strong th:text="*{title}"></strong>
@@ -43,7 +47,7 @@
 		<p>Pilih Instansi</p>
 		<form method="GET" action="/pegawai/termuda-tertua">
 			<select name="idInstansi">
-				<option th:each="instansi : ${listInstansi}" th:text="${instansi.nama}" th:value="${instansi.id}"></option>
+				<option th:each="instansi : ${listInstansi}" th:text="${instansi.nama} + ' - ' + ${instansi.provinsi.nama}" th:value="${instansi.id}"></option>
 			</select>
 			<input type="submit" value="Submit">
 		</form>

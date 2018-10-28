@@ -16,6 +16,7 @@ import com.apap.tugas1.model.PegawaiModel;
 import com.apap.tugas1.service.InstansiService;
 import com.apap.tugas1.service.JabatanService;
 import com.apap.tugas1.service.PegawaiService;
+import com.apap.tugas1.service.ProvinsiService;
 
 @Controller
 public class PegawaiController {
@@ -28,6 +29,9 @@ public class PegawaiController {
 	
 	@Autowired
 	private InstansiService instansiService;
+	
+	@Autowired
+	private ProvinsiService provinsiService;
 	
 	@RequestMapping("/")
 	private String home(Model model) {
@@ -76,5 +80,17 @@ public class PegawaiController {
 		
 		
 	}
+	
+	@RequestMapping(value="/pegawai/tambah", method = RequestMethod.GET)
+	private String addPegawai(Model model) {
+		model.addAttribute("listProvinsi", provinsiService.findAll());
+		model.addAttribute("listInstansi", instansiService.findAll());
+		model.addAttribute("listJabatan", jabatanService.findAll());
+		model.addAttribute("pegawai", new PegawaiModel());
+		return "addPegawai";
+	}
+	
+	
+	
 
 }
