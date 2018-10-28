@@ -6,16 +6,50 @@
 		<head th:fragment="css">
 			<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 			<link rel="stylesheet" th:href="@{/css/kirana.css}">
+			<link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800" rel="stylesheet">
+			
 		</head>
 		
 		<head th:fragment="js">
+			<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
 			<script th:src="@{/js/bootstrap.min.js}"></script>
 		</head>
 		
 	</head>
 	
 	<body>
-		<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dart bg-blue">
+	<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand font-ext" href="/">SIPEG</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item active">
+	        <a class="nav-link font-sem" href="/">Home <span class="sr-only">(current)</span></a>
+	      <li class="nav-item dropdown">
+	        <a class="nav-link dropdown-toggle font-sem" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          Pegawai
+	        </a>
+	        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+	          <a class="dropdown-item font-reg" href="/pegawai/tambah">Tambah Pegawai</a>
+	          <a class="dropdown-item font-reg" href="/pegawai/cari">Lihat Semua Pegawai</a>
+	        </div>
+	      </li>
+	      <li class="nav-item dropdown">
+	        <a class="nav-link dropdown-toggle font-sem" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          Jabatan
+	        </a>
+	        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+	          <a class="dropdown-item font-reg" href="/jabatan/tambah">Tambah Jabatan</a>
+	          <a class="dropdown-item font-reg" href="/jabatan/viewall">Lihat Semua Jabatan</a>
+	        </div>
+	      </li>
+	    </ul>
+	  </div>
+	</nav>
+		<!-- <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dart bg-blue">
 			<a class="navbar-brand" href="#">SIPEG</a>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
@@ -24,6 +58,6 @@
 					</li>
 				</ul>
 			</div>
-		</nav>
+		</nav> -->
 	</body>
 </html>

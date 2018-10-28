@@ -6,7 +6,10 @@
 		<object th:include="fragments/fragment :: js" th:remove="tag"></object>
 	</head>
 	<body>
-		<div>
+		<nav th:replace="fragments/fragment :: navbar"></nav>
+		<div class="container-fluid">
+		<div class="row">
+		<div class="col-md-6 col-sm-12">
 		<h1 th:text="'Lihat Data Pegawai Termuda'"></h1>
 		<br>
 		<table>
@@ -40,7 +43,7 @@
 			</tr>
 		</table>
 		</div>
-		<div>
+		<div class="col-md-6 col-sm-12">
 		<h1 th:text="'Lihat Data Pegawai Tertua'"></h1>
 		<br>
 		<table>
@@ -74,6 +77,8 @@
 			</tr>
 			
 		</table>
+		</div>
+		</div>
 		</div>
 	</body>
 </html>

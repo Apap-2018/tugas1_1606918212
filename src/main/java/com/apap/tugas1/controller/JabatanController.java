@@ -81,6 +81,9 @@ public class JabatanController {
 			jabatanService.save(jabatanModel);
 			
 			Message message = new Message();
+			message.setTitle("Hooray!");
+			message.setContent("Jabatan berhasil diubah.");
+			message.setType(Message.Type.SUCCESS);
 			redirect.addFlashAttribute(Message.MESSAGE_NAME, message);
 			
 			return "redirect:/jabatan/view?idJabatan=" + jabatanModel.getId();

@@ -6,24 +6,43 @@
 		<object th:include="fragments/fragment :: js" th:remove="tag"></object>
 	</head>
 	<body>
+	<nav th:replace="fragments/fragment :: navbar"></nav>
 	<div th:if="${message != null}" class="container" style="position: fixed; top: 64px; z-index: 99; left: 0; right: 0; max-width: 640px">
         <div th:object="${message}" class="alert alert-dismissible fade show" th:classappend="'alert-' + *{type}" role="alert">
-            <strong th:text="*{title}"></strong>
-            <p th:text="*{content}"></p>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <strong th:text="*{title}" class="font-sem"></strong>
+            <p th:text="*{content}" class="font-reg"></p>
+            <button type="button" class="close font-reg" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
     </div>
-		<h1>Tambah Jabatan</h1>
+    <div class="absolute-center">
+		<h1 class="text-center font-title">Tambah Jabatan</h1>
+		<div class="container-fluid">
+		<div class="row d-flex justify-content-center">
+		<div class="p-1 col-lg-10 col-md-8 col-sm-8 col-xs-8">
 		<form method="POST" action="/jabatan/tambah">
-			<label for="name">Nama</label>
-			<input type="text" id="name" th:field="${jabatan.nama}" /><br>
-			<label for="desc">Deskripsi</label>
-			<input type="text" id="desc" th:field="${jabatan.deskripsi}" /><br>
-			<label for="gaji">Gaji Pokok</label>
-			<input type="number" min="0" id="gaji" th:field="${jabatan.gaji_pokok}" /><br>
-			<input type="submit" value="Submit">
+			<ul class="wrapper">
+			<li class="form-row"> 
+			<label class="font-med" for="name">Nama</label>
+			<input class="font-reg" type="text" id="name" th:field="${jabatan.nama}" /><br>
+			</li>
+			<li class="form-row">
+			<label class="font-med" for="desc">Deskripsi</label>
+			<input class="font-reg" type="text" id="desc" th:field="${jabatan.deskripsi}" /><br>
+			</li>
+			<li class="form-row">
+			<label class="font-med" for="gaji">Gaji Pokok</label>
+			<input class="font-reg" type="number" min="0" id="gaji" th:field="${jabatan.gaji_pokok}" /><br>
+			</li>
+			<li class="form-row">
+			<input class="font-sem" type="submit" value="Submit">
+			</li>
+			</ul>
 		</form>
+		</div>
+		</div>
+		</div>
+		</div>
 	</body>
 </html>
