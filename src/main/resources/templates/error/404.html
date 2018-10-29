@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html  xmlns:th = "http://www.thymeleaf.org">
+ 	<head>
+ 		<title> 404 Not found </title>
+ 		<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+		<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+	</head>
+ 	
+ 	<body>
+ 	<nav th:replace="fragments/fragment :: navbar"></nav>
+ 		<div  class="absolute-center font-bol">
+ 		<h2 class="font-bol text-center"> Halaman tidak ditemukan </h2><br>
+ 		<a class="font-reg text-center"th:href="'/'">Kembali ke Home</a>
+ 		</div>
+ 	</body> 
+ </html>
