@@ -25,15 +25,15 @@
 			<ul class="wrapper">
 			<li class="form-row"> 
 			<label class="font-med" for="name">Nama</label>
-			<input class="font-reg" type="text" id="name" th:field="${jabatan.nama}" /><br>
+			<input class="font-reg" type="text" id="name" th:field="${jabatan.nama}" required/><br>
 			</li>
 			<li class="form-row">
 			<label class="font-med" for="desc">Deskripsi</label>
-			<input class="font-reg" type="text" id="desc" th:field="${jabatan.deskripsi}" /><br>
+			<input class="font-reg" type="text" id="desc" th:field="${jabatan.deskripsi}" required/><br>
 			</li>
 			<li class="form-row">
 			<label class="font-med" for="gaji">Gaji Pokok</label>
-			<input class="font-reg" type="number" min="0" id="gaji" th:field="${jabatan.gaji_pokok}" /><br>
+			<input class="font-reg" type="number" min="0" id="gaji" th:field="${jabatan.gaji_pokok}" required/><br>
 			</li>
 			<li class="form-row">
 			<input class="font-sem" type="submit" value="Submit">

@@ -12,6 +12,8 @@ public interface PegawaiService {
 	
 	Optional<PegawaiModel> getPegawaiTertua(Long idInstansi);
 	
+	PegawaiModel save(PegawaiModel pegawai);
+	
 	
 	
 }

@@ -20,36 +20,49 @@
 		<h1 class="text-center font-title">Tambah Pegawai</h1>
 		<div class="container-fluid">
 		<div class="row d-flex justify-content-center">
-		<div class="p-1 col-lg-12 col-md-8 col-sm-8">
+		<div class="p-1 col-lg-10 col-md-8 col-sm-8">
 		<form method="POST" action="/pegawai/tambah">
 			<ul class="wrapper">
 			<li class="form-row"> 
 			<label for="name">Nama</label>
-			<input type="text" id="name" th:field="${pegawai.nama}" /><br>
+			<input type="text" id="name" th:field="${pegawai.nama}" required /><br>
 			</li>
 			<li class="form-row"> 
 			<label for="tempatLahir">Tempat Lahir</label>
-			<input type="text" id="tempatLahir" th:field="${pegawai.tempat_lahir}" /><br>
+			<input type="text" id="tempatLahir" th:field="${pegawai.tempat_lahir}" required /><br>
 			</li>
 			<li class="form-row"> 
 			<label for="tanggalLahir">Tanggal Lahir</label>
-			<input type="text" id="tanggalLahir" th:field="${pegawai.tanggalLahir}" /><br>
+			<input type="text" id="tanggalLahir" th:field="${pegawai.tanggalLahir}" th:value="'dd/MM/yyyy'" class="font-input" required /><br>
 			</li>
 			<li class="form-row"> 
 			<label for="tahunMasuk">Tahun Masuk</label>
-			<input type="text" id="tahunMasuk" th:field="${pegawai.tahun_masuk}" /><br>
+			<input type="text" id="tahunMasuk" th:field="${pegawai.tahun_masuk}" required/><br>
 			</li>
-			<!-- <select name="idProvinsi">
-				<option th:each="provinsi : ${listProvinsi}" th:text="${provinsi.nama}" th:value="${provinsi.id}"></option>
+			<li class="form-row">
+			<label for="provinsi">Provinsi</label>
+			<select th:field="${pegawai.instansi.provinsi.id}" name="provinsi" id="provinsi">
+				<option th:each="provinsi : ${listProvinsi}" th:attr="data-subtext=${provinsi.nama}" th:text="${provinsi.nama}" th:value="${provinsi.id}"></option>
 			</select>
-			<select name="idInstansi">
-				<option th:each="instansi : ${listInstansi}" th:text="${instansi.nama}" th:value="${instansi.id}"></option>
+			</li>
+			<li class="form-row">
+			<label for="instansi">Nama Instansi</label>
+			<select th:field="${pegawai.instansi.id}" name="instansi" id="instansi">
+				<option th:each="instansi : ${listInstansi}" th:attr="data-subtext=${instansi.nama},data-provinsi=${instansi.provinsi.id}" th:text="${instansi.nama}" th:value="${instansi.id}"></option>
 			</select>
-			<select name="idJabatan">
-				<option th:each="instansi : ${listInstansi}" th:text="${instansi.provinsi.nama}" th:value="${instansi.id}"></option>
-			</select> -->
-			<li class="form-row"> 
-			<input type="submit" value="Submit">
+			</li>
+			<li class="form-row">
+			<select th:each="jabatan, jabatanst : ${pegawai.jabatan}"
+					th:field="${pegawai.jabatan[__${jabatanst.index}__].id}">
+                <option th:each="jabatan : ${listJabatan}"
+						th:text="${jabatan.nama}"
+						th:value="${jabatan.id}"></option>
+            </select>
+            <button type="submit" name="newJabatan">Tambah jabatan</button>
+			
+			</li>
+			<li class="form-row">
+			<input type="submit" value="Submit" name="save">
 			</li>
 			</ul>
 		</form>

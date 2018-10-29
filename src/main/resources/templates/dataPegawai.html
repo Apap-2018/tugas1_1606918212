@@ -7,8 +7,8 @@
 	</head>
 	<body>
 	<nav th:replace="fragments/fragment :: navbar"></nav>
-		<h1 th:text="'Lihat Data Pegawai - ' + ${pegawai.nip}"></h1>
-		<br>
+	
+		<h1 class="text-center font-title" th:text="'Lihat Data Pegawai - ' + ${pegawai.nip}"></h1>
 		<table>
 			<tr>
 				<td>NIP</td>

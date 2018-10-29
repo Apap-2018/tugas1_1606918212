@@ -3,7 +3,6 @@ package com.apap.tugas1.model;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,13 +18,14 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="pegawai")
 public class PegawaiModel implements Serializable{
 	
 	@Id
 	@NotNull
-	@Size(max=20)
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	
@@ -45,8 +45,8 @@ public class PegawaiModel implements Serializable{
 	private String tempat_lahir;
 
 	@NotNull
-	@Size(max=255)
 	@Column(name="tanggal_lahir", nullable=false)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date tanggalLahir;
 	
 	@NotNull
@@ -55,7 +55,6 @@ public class PegawaiModel implements Serializable{
 	private String tahun_masuk;
 	
 	@NotNull
-	@Size(max=20)
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_instansi", nullable=false)
 	private InstansiModel instansi;
@@ -69,7 +68,7 @@ public class PegawaiModel implements Serializable{
 			}
 	)
 	@ManyToMany
-	private Set<JabatanModel> jabatan;
+	private List<JabatanModel> jabatan;
 	
 	public long getId() {
 		return id;
@@ -127,11 +126,11 @@ public class PegawaiModel implements Serializable{
 		this.instansi = instansi;
 	}
 	
-	public Set<JabatanModel> getJabatan() {
+	public List<JabatanModel> getJabatan() {
 		return jabatan;
 	}
 
-	public void setJabatan(Set<JabatanModel> jabatan) {
+	public void setJabatan(List<JabatanModel> jabatan) {
 		this.jabatan = jabatan;
 	}
 
